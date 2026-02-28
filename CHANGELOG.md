@@ -11,6 +11,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `CODE_OF_CONDUCT.md` to establish community standards.
 - `CHANGELOG.md` to track version history.
 - `README.md`, `LICENSE`, and `.gitignore`
+- Gemini CLI native `extensions install` instructions to the README.
+
+### Fixed
+- Fixed truncated YAML frontmatter trigger phrase that caused validation warnings.
+- Added missing reference files (`gitignore-patterns.md`, `project-structures.md`, `secret-patterns.md`) to the public repository to fix automated Vercel Codex Bot audits.
 
 ## [1.0.0] - 2026-02-28
 ### Added
