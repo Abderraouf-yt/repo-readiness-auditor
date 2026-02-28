@@ -1,0 +1,37 @@
+name: "Skill Validation"
+
+on:
+    pull_request:
+        paths:
+            - "SKILL.md"
+    push:
+        branches:
+            - main
+        paths:
+            - "SKILL.md"
+
+jobs:
+    validate-frontmatter:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+
+            - name: Verify YAML Frontmatter in SKILL.md
+              run: |
+                  if ! head -n 1 SKILL.md | grep -q "^---$"; then
+                    echo "::error file=SKILL.md,line=1::SKILL.md must start with YAML frontmatter '---'"
+                    exit 1
+                  fi
+
+                  if ! egrep -q "^name:[[:space:]]+.*$" SKILL.md; then
+                    echo "::error file=SKILL.md::SKILL.md is missing the 'name:' property in frontmatter"
+                    exit 1
+                  fi
+
+                  if ! egrep -q "^description:[[:space:]]+.*$" SKILL.md; then
+                    echo "::error file=SKILL.md::SKILL.md is missing the 'description:' property in frontmatter"
+                    exit 1
+                  fi
+
+                  echo "YAML frontmatter syntax is structurally valid."

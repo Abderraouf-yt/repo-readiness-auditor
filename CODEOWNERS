@@ -1,0 +1,9 @@
+# CODEOWNERS for repo-readiness-auditor
+
+# The core maintainer has default review rights for all files
+*       @Abderraouf-yt
+
+# Specific areas can be routed to teams if created in the future
+/scripts/    @Abderraouf-yt
+/references/ @Abderraouf-yt
+SKILL.md     @Abderraouf-yt
