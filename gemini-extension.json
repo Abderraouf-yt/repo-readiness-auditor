@@ -1,0 +1,6 @@
+{
+  "name": "repo-readiness-auditor",
+  "version": "1.0.0",
+  "description": "Audits projects for GitHub Best Practices, directory structure, and repo readiness.",
+  "contextFileName": "SKILL.md"
+}
