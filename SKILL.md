@@ -169,6 +169,9 @@ Check for the presence and quality of these files:
 **Recommended (flag as 🟡 Warning if missing):**
 - `CHANGELOG.md` — Especially important for versioned projects.
 - `CONTRIBUTING.md` — For open-source projects.
+- `SECURITY.md` — Vulnerability disclosure policy (2026 Best Practice).
+- `.github/ISSUE_TEMPLATE/` and `.github/PULL_REQUEST_TEMPLATE.md` — For standardizing community input.
+- `CODEOWNERS` — To automate review assignments.
 - `.env.example` — If the project uses `.env` files, there should be a template.
 - `docs/` or inline documentation
 - `PRD.md` or `ARCHITECTURE.md` — For complex projects.
@@ -277,6 +280,7 @@ If the project contains a root `SKILL.md` or a `skills/` directory, it is an **A
 2. **Bloat**: Are there massive files in the root that will destroy the LLM's context window? Is `SKILL.md` under 500 lines?
 3. **Multi-Skill Layout**: If a `skills/` folder exists, does every subdirectory have isolated metadata?
 4. **Community Files**: Skills must be open-source friendly. Expect `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`.
+5. **GitHub Best Practices**: Because skills instruct AI agents, they MUST have an `AGENTS.md`. They should also have `.github/workflows/` (ideally for skill validation), `CODEOWNERS`, and `SECURITY.md`.
 
 ---
 
@@ -390,7 +394,7 @@ ALWAYS use this exact template when delivering the audit:
 
 ## 🧠 Skill Ecosystem Compliance
 *(Only include this section if it is an AI Agent Skill repo)*
-(Report on YAML frontmatter, context bloat, and `skills.sh` alignment)
+(Report on YAML frontmatter, context bloat, `skills.sh` alignment, and `AGENTS.md` presence)
 
 ## 📋 Recommended .gitignore
 (Complete .gitignore content if current one is missing or incomplete)

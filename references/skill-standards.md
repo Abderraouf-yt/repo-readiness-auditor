@@ -47,3 +47,12 @@ skills-collection-repo/
         └── SKILL.md       // Self-contained metadata for Beta
 ```
 **Rule**: Every directory inside the `skills/` folder MUST contain its own `SKILL.md`. It cannot rely on a root `SKILL.md`.
+
+## 4. GitHub Best Practices (2026) Integration
+Because skills are used to instruct AI agents, they must act as gold standards of project cleanliness. When auditing a skill repository, flag the absence of the following files as issues:
+
+- **`AGENTS.md`**: Provides instruction to *other* AI agents interacting with the repository. 
+- **`SECURITY.md`**: Essential for any open-source security tool or credential-handling skill.
+- **`CODEOWNERS`**: Automates review cycles for the repo.
+- **`.github/ISSUE_TEMPLATE` & `.github/PULL_REQUEST_TEMPLATE.md`**: Standardizes community contributions.
+- **CI Workflows**: A `.github/workflows/` directory should exist to enforce validation (like YAML frontmatter syntax checks) before PRs are merged.

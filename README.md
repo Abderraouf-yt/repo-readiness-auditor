@@ -12,6 +12,7 @@ Designed for AI coding assistants like **Claude Code**, **Gemini**, **Windsurf**
 - 🛡️ **Secrets Scanning**: Deep regex scanning for AWS, OpenAI, Stripe, GitHub PATs, and more.
 - 🧹 **Dangerous Files Check**: Flags `node_modules`, `.env`, `.venv`, and build artifacts.
 - 🤖 **AI Config Audit**: Validates `AGENTS.md`, `CLAUDE.md`, and `.cursorrules` following 2026 best practices.
+- 🐙 **GitHub Best Practices (2026)**: Enforces `SECURITY.md`, `CODEOWNERS`, and standardized PR/Issue templates.
 - 🌐 **Remote Mode**: Connects via `github-mcp-server` to audit live, already-pushed GitHub repositories.
 - 🏗️ **Project Structure Validation**: Compares your layout to ideal 2026 framework structures.
 
