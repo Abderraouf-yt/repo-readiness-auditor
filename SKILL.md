@@ -4,12 +4,13 @@ description: >-
   Audits any project's directory structure, .gitignore, secrets exposure, and
   documentation completeness to ensure it is ready for a public or private GitHub
   repository. Works on LOCAL projects and REMOTE GitHub repos via the
-  github-mcp-server. Use this skill whenever the user asks to "prepare repo for
-  GitHub", "audit project structure", "check gitignore", "review before commit",
-  "clean up repo", "make repo ready", "check project structure", "audit my
-  GitHub repos", "check my pushed repos", or mentions validating a project's
-  files before pushing to Git. Also triggers on phrases like "what should I
-  gitignore", "is my repo clean", "review my project layout", "are my repos
+  github-mcp-server. Audits both standard projects and AI Agent Skill repos.
+  Use this skill whenever the user asks to "prepare repo for
+  GitHub", "audit project structure", "audit this skill repo", "check gitignore",
+  "review before commit", "clean up repo", "make repo ready", "check project
+  structure", "audit my GitHub repos", "check my pushed repos", or mentions
+  validating a project's files before pushing to Git. Also triggers on phrases
+  like "what should I gitignore", "is my skill repo clean", "review my project layout",
   clean", or "best practices for repo structure". Works for Python, Node.js,
   C#/.NET, Rust, Go, Java, Django, Flask, Next.js, React, Vue, Svelte, and any
   other tech stack.
@@ -35,6 +36,7 @@ Any time a user wants to:
 - Validate that essential documentation files exist
 - **Audit already-pushed GitHub repos for readiness and cleanliness**
 - **Scan remote repos for leaked secrets or missing documentation**
+- **Validate if an AI Agent Skill repository follows strict open standards**
 
 ## Audit Workflow
 
@@ -268,6 +270,14 @@ to systematically scan ALL source files.
 - Create a `.env.example` with placeholder values
 - Consider using a secrets manager for production (Vault, AWS Secrets Manager)
 
+### Step 8: AI Agent Skill Audit Mode (Conditional)
+
+If the project contains a root `SKILL.md` or a `skills/` directory, it is an **AI Agent Skill Repository**. Read `references/skill-standards.md`, then validate:
+1. **Metadata**: Does the `SKILL.md` have complete YAML frontmatter (`name`, `description`)?
+2. **Bloat**: Are there massive files in the root that will destroy the LLM's context window? Is `SKILL.md` under 500 lines?
+3. **Multi-Skill Layout**: If a `skills/` folder exists, does every subdirectory have isolated metadata?
+4. **Community Files**: Skills must be open-source friendly. Expect `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`.
+
 ---
 
 ## 🌐 Remote Audit Mode (GitHub MCP Server)
@@ -377,6 +387,10 @@ ALWAYS use this exact template when delivering the audit:
 
 ## 🟢 Passed Checks
 (What the project does well)
+
+## 🧠 Skill Ecosystem Compliance
+*(Only include this section if it is an AI Agent Skill repo)*
+(Report on YAML frontmatter, context bloat, and `skills.sh` alignment)
 
 ## 📋 Recommended .gitignore
 (Complete .gitignore content if current one is missing or incomplete)
