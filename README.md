@@ -18,6 +18,13 @@ Designed for AI coding assistants like **Claude Code**, **Gemini**, **Windsurf**
 
 ## Installation
 
+### For Gemini CLI
+Install natively via the Gemini CLI Extensions ecosystem:
+```bash
+gemini extensions install https://github.com/Abderraouf-yt/repo-readiness-auditor
+```
+
+### For other AI Agents (Claude Code, Cursor, Windsurf)
 Clone or copy this directory into your AI agent's skills or instructions folder (e.g., `.agents/skills/repo-readiness-auditor`).
 
 ## Usage
