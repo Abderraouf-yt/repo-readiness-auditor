@@ -292,6 +292,30 @@ If the project is detected as a Model Context Protocol (MCP) Server (via Step 1)
 3. **Audit Modularity**: Ensure it separates tools, resources, and prompts into distinct modules.
 4. **Audit Documentation**: The `README.md` must list exposed tools and clarify transport (stdio vs SSE).
 
+### Step 10: CI/CD & Security Operations Audit
+
+Modern repositories must automate security and dependency updates.
+1. **GitHub Actions Security**: If `.github/workflows/` exists, scan the YAML files:
+   - Check if `permissions: contents: read` is explicitly set (preventing default write access).
+   - Flag if `pull_request_target` is used alongside `actions/checkout` (High Security Risk - PwnRequests).
+2. **Dependency Automation**: 
+   - Check for the existence of `.github/dependabot.yml` or `renovate.json`.
+   - If missing, flag as a 🟡 Warning.
+
+### Step 11: Auto-Remediation (Fix-It Mode)
+
+If the user explicitly asks you to "fix issues", "run remediation", "make it ready", or if they approve your audit suggestions, you must **actively fix the repository** using your tool-calling capabilities.
+
+1. **Scaffold Missing Files**: Use the standard templates provided in `references/templates/`:
+   - `references/templates/SECURITY.md` -> copy to project root
+   - `references/templates/CODE_OF_CONDUCT.md` -> copy to project root
+   - `references/templates/dependabot.yml` -> copy to `.github/dependabot.yml`
+   - `references/templates/PULL_REQUEST_TEMPLATE.md` -> copy to `.github/PULL_REQUEST_TEMPLATE.md`
+   - `references/templates/ISSUE_TEMPLATE.md` -> copy to `.github/ISSUE_TEMPLATE/ISSUE_TEMPLATE.md`
+2. **Generate `.gitignore`**: If missing, write the aggregated patterns from `references/gitignore-patterns.md` to `.gitignore`.
+3. **Draft Documentation**: Write a basic `README.md` or `CONTRIBUTING.md` if they are completely missing.
+4. **Commit Fixes**: Use `run_command` to execute `git add .` and `git commit -m "chore: auto-remediate repository structure and add community standards"`
+
 ---
 
 ## 🌐 Remote Audit Mode (GitHub MCP Server)
@@ -411,15 +435,20 @@ ALWAYS use this exact template when delivering the audit:
 *(Only include this section if it is an MCP Server)*
 (Report on stdio/SSE configuration, modularity of tools/resources, documentation of exposed endpoints, and SDK conformance testing)
 
+## 🛡️ CI/CD & SecOps
+(Report on workflow permissions and the presence of dependabot/renovate. If dependabot is missing, recommend auto-remediation.)
+
 ## 📋 Recommended .gitignore
 (Complete .gitignore content if current one is missing or incomplete)
 
 ## 🗂️ Suggested Structure
 (If the project layout needs reorganization, show the ideal tree)
 
-## ✅ Action Items
+## ✅ Action Items & Auto-Remediation
 1. [Specific action with exact file paths]
 2. [Next action...]
+
+> **💡 Auto-Remediation Available:** "I can automatically fix these issues by generating securely-configured GitHub Actions, `dependabot.yml`, `SECURITY.md`, and community templates. Shall I run the remediation?"
 ```
 
 ## Important Guidelines
