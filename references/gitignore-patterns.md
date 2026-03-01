@@ -332,9 +332,31 @@ build/
 
 ## MCP Server
 
+Patterns sourced from official `modelcontextprotocol/` GitHub repositories
+(`typescript-sdk`, `python-sdk`, `servers`, `create-python-server`).
+
 ```gitignore
-# MCP project-scoped configuration (may contain tokens, local server paths)
-# Claude Code uses .mcp.json at project root for bundled servers
+# === MCP-Specific Patterns (from official repos) ===
+
+# OAuth & credential files (from modelcontextprotocol/servers)
+gcp-oauth.keys.json
+.*-server-credentials.json
+
+# Conformance test results (from typescript-sdk, python-sdk)
+results/
+
+# Scratch / temporary development files (from python-sdk)
+scratch/
+
+# Git worktrees for local doc generation (from typescript-sdk)
+.worktrees/
+
+# Claude Code local settings (from modelcontextprotocol/servers)
+.claude/settings.local.json
+
+# === MCP Client/Consumer Configuration (should NOT be committed) ===
+
+# Claude Code project-scoped MCP server config
 .mcp.json
 
 # General MCP config (Laravel Boost, standalone servers)
@@ -349,12 +371,14 @@ mcp.json
 # Gemini CLI MCP configuration (contains local paths and tokens)
 mcp_config.json
 
+# === MCP Runtime State ===
+
 # MCP runtime state and session storage
 .mcp/
 mcp-sessions/
-
-# Transport state & logs
 .mcp-state/
+
+# Transport logs
 *.mcp.log
 
 # Docker runtime (if containerized MCP server)
