@@ -346,18 +346,45 @@ mcp.json
 # VS Code MCP configuration
 .vscode/mcp.json
 
+# --- Major AI Coding Assistants & IDEs ---
+
 # Gemini CLI
+.gemini/
 mcp_config.json
 
-# MCP Client Configurations (contains paths & env vars)
+# Antigravity IDE
+.antigravity/
+
+# OpenCode
+opencode.json
+
+# Qwen CLI
+.qwen/
+
+# Cursor, Roo Code, Cline, Claude Desktop
 claude_desktop_config.json
 .cursor/mcp.json
 cline_mcp_settings.json
 roo_mcp_settings.json
+
+# Windsurf (Codeium)
+.codeium/
+
+# Continue.dev
+.continue/
+
+# Zed
+.zed/
+zed_mcp.json
+
+# Sourcegraph Cody
+.cody/
+
+# Generic MCP configs (catchall for others)
 mcp.json
 .mcp.json
 
-# MCP runtime state and session storage
+# --- Environment & Runtime ---
 .mcp/
 mcp-sessions/
 
