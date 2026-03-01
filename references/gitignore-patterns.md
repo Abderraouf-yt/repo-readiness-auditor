@@ -327,3 +327,22 @@ build/
 .flutter-plugins-dependencies
 *.iml
 ```
+
+---
+
+## MCP Server
+
+```gitignore
+# MCP local configuration (contains tokens, local paths)
+.mcp.json
+mcp_config.json
+mcp-sessions/
+
+# Transport state & logs
+.mcp-state/
+*.mcp.log
+
+# Docker runtime (if containerized MCP server)
+.docker/
+docker-compose.override.yml
+```

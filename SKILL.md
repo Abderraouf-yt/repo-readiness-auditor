@@ -50,6 +50,7 @@ Scan the project root for marker files to auto-detect the tech stack(s):
 | Marker File | Tech Stack |
 |---|---|
 | `package.json` | Node.js / JavaScript / TypeScript |
+| `@modelcontextprotocol/sdk` (in package.json) or `mcp` (in pyproject/requirements) | MCP Server |
 | `requirements.txt`, `pyproject.toml`, `setup.py`, `Pipfile` | Python |
 | `manage.py`, `settings.py` | Django |
 | `app.py` + `flask` imports | Flask |
@@ -282,6 +283,15 @@ If the project contains a root `SKILL.md` or a `skills/` directory, it is an **A
 4. **Community Files**: Skills must be open-source friendly. Expect `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`.
 5. **GitHub Best Practices**: Because skills instruct AI agents, they MUST have an `AGENTS.md`. They should also have `.github/workflows/` (ideally for skill validation), `CODEOWNERS`, and `SECURITY.md`.
 
+### Step 9: MCP Server Standards Audit (Conditional)
+
+If the project is detected as a Model Context Protocol (MCP) Server (via Step 1), you must ensure it adheres to secure protocol transport specifications.
+
+1. **Read Reference**: Load `references/mcp-standards.md` to get the strict auditing requirements.
+2. **Audit Transport & Security**: Verify it handles DNS rebinding (if SSE), session IDs, and keeps credentials completely server-side.
+3. **Audit Modularity**: Ensure it separates tools, resources, and prompts into distinct modules.
+4. **Audit Documentation**: The `README.md` must list exposed tools and clarify transport (stdio vs SSE).
+
 ---
 
 ## 🌐 Remote Audit Mode (GitHub MCP Server)
@@ -319,6 +329,7 @@ Each local audit step maps to GitHub MCP tools as follows:
 | **Step 5**: Documentation | `find_by_name` | `get_file_contents(owner, repo, "README.md")`, `"LICENSE"`, etc. |
 | **Step 6**: Project structure | `list_dir`, `find_by_name` | `get_file_contents(owner, repo, "src/")` — recurse dirs |
 | **Step 7**: Secrets scan | `grep_search` | `search_code(q: "AKIA repo:{owner}/{repo}")` |
+| **Step 9**: MCP Server audit | `grep_search`, `view_file` | `search_code(q: "@modelcontextprotocol/sdk repo:{owner}/{repo}")` |
 
 ### Remote Secrets Scanning via search_code
 
@@ -395,6 +406,10 @@ ALWAYS use this exact template when delivering the audit:
 ## 🧠 Skill Ecosystem Compliance
 *(Only include this section if it is an AI Agent Skill repo)*
 (Report on YAML frontmatter, context bloat, `skills.sh` alignment, and `AGENTS.md` presence)
+
+## 🔌 MCP Server Compliance
+*(Only include this section if it is an MCP Server)*
+(Report on stdio/SSE configuration, modularity of tools/resources, documentation of exposed endpoints, and SDK conformance testing)
 
 ## 📋 Recommended .gitignore
 (Complete .gitignore content if current one is missing or incomplete)

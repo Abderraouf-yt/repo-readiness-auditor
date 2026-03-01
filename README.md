@@ -15,6 +15,7 @@ Designed for AI coding assistants like **Claude Code**, **Gemini**, **Windsurf**
 - 🐙 **GitHub Best Practices (2026)**: Enforces `SECURITY.md`, `CODEOWNERS`, and standardized PR/Issue templates.
 - 🌐 **Remote Mode**: Connects via `github-mcp-server` to audit live, already-pushed GitHub repositories.
 - 🏗️ **Project Structure Validation**: Compares your layout to ideal 2026 framework structures.
+- 🔌 **MCP Server Audit**: Detects Model Context Protocol servers and validates transport security, modularity, containerization, and SDK conformance.
 
 ## Installation
 
@@ -35,7 +36,7 @@ Simply ask your AI assistant:
 - *"Check my pushed repos for leaked secrets"*
 - *"Is my repo clean?"*
 
-The agent will automatically trigger the skill and run a 7-step audit workflow, producing a professional markdown report with critical issues, warnings, and actionable fixes.
+The agent will automatically trigger the skill and run a 9-step audit workflow, producing a professional markdown report with critical issues, warnings, and actionable fixes.
 
 ## 💼 Enterprise Consulting & Custom Tools
 
