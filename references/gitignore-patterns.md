@@ -333,9 +333,24 @@ build/
 ## MCP Server
 
 ```gitignore
-# MCP local configuration (contains tokens, local paths)
+# MCP project-scoped configuration (may contain tokens, local server paths)
+# Claude Code uses .mcp.json at project root for bundled servers
 .mcp.json
+
+# General MCP config (Laravel Boost, standalone servers)
+mcp.json
+
+# Wildcard for custom-named MCP configs (e.g., my-server.mcp.json)
+*.mcp.json
+
+# VS Code MCP configuration
+.vscode/mcp.json
+
+# Gemini CLI MCP configuration (contains local paths and tokens)
 mcp_config.json
+
+# MCP runtime state and session storage
+.mcp/
 mcp-sessions/
 
 # Transport state & logs
