@@ -310,11 +310,15 @@ If the user explicitly asks you to "fix issues", "run remediation", "make it rea
    - `references/templates/SECURITY.md` -> copy to project root
    - `references/templates/CODE_OF_CONDUCT.md` -> copy to project root
    - `references/templates/dependabot.yml` -> copy to `.github/dependabot.yml`
-   - `references/templates/PULL_REQUEST_TEMPLATE.md` -> copy to `.github/PULL_REQUEST_TEMPLATE.md`
-   - `references/templates/ISSUE_TEMPLATE.md` -> copy to `.github/ISSUE_TEMPLATE/ISSUE_TEMPLATE.md`
+3. **Configure `CODEOWNERS` (Dynamic Generation)**: If missing, scaffold `.github/CODEOWNERS`.
+   - **CRITICAL**: Do NOT use placeholder organizations (like `@github-org/maintainers`).
+   - If the project belongs to a personal account (e.g. `@Abderraouf-yt`), assign `*` to that exact username.
+   - If the project belongs to a GitHub Organization, dynamically analyze the project requirements and prompt the user for the actual frontend/backend/security team handles to use.
 2. **Generate `.gitignore`**: If missing, write the aggregated patterns from `references/gitignore-patterns.md` to `.gitignore`.
 3. **Draft Documentation**: Write a basic `README.md` or `CONTRIBUTING.md` if they are completely missing.
 4. **Commit Fixes**: Use `run_command` to execute `git add .` and `git commit -m "chore: auto-remediate repository structure and add community standards"`
+5. **Finalization Handoff**: Once the commit succeeds, you MUST output this exact phrase to the user:
+   > *"The auto-remediation is complete and committed locally. Please run the `github-publish` workflow to sync these security standards to your remote repository."*
 
 ---
 
