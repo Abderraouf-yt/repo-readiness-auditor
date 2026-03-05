@@ -20,9 +20,9 @@ Designed for AI coding assistants like **Claude Code**, **Gemini**, **Windsurf**
 ## Installation
 
 ### For Gemini CLI
-Install natively via the Gemini CLI Extensions ecosystem:
+Install natively via the Gemini CLI Skills ecosystem:
 ```bash
-gemini extensions install https://github.com/Abderraouf-yt/repo-readiness-auditor
+gemini skills install https://github.com/Abderraouf-yt/repo-readiness-auditor
 ```
 
 ### For other AI Agents (Claude Code, Cursor, Windsurf)
@@ -37,16 +37,6 @@ Simply ask your AI assistant:
 - *"Is my repo clean?"*
 
 The agent will automatically trigger the skill and run a 9-step audit workflow, producing a professional markdown report with critical issues, warnings, and actionable fixes.
-
-## 💼 Enterprise Consulting & Custom Tools
-
-This open-source skill provides a powerful foundation. Are you looking to:
-- Enforce custom internal security policies?
-- Integrate this auditor into your enterprise CI/CD pipeline?
-- Build proprietary AI developer tools and MCP servers for your organization?
-
-**We offer consulting, custom AI agent development, and enterprise implementations.** 
-Reach out for a consultation to level up your engineering team's AI capabilities.
 
 ## License
 

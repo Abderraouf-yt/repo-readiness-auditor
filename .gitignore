@@ -8,3 +8,10 @@ desktop.ini
 .idea/
 *.swp
 *~
+
+# AI Tools & Workspaces
+.antigravity/
+.gemini/
+.cursor/
+.cline/
+.roo/
