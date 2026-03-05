@@ -1,0 +1,32 @@
+# GitHub Actions - OIDC Workflow Template
+# Use this to securely authenticate with cloud providers without long-lived secrets.
+
+name: Secure OIDC Deploy
+on:
+  push:
+    branches: [main]
+
+permissions:
+  id-token: write # Required for requesting the JWT
+  contents: read # Required for actions/checkout
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Example: AWS Authentication via OIDC
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v3
+      #   with:
+      #     role-to-assume: arn:aws:iam::123456789012:role/my-github-actions-role
+      #     aws-region: us-east-1
+
+      # Example: Google Cloud Authentication via OIDC
+      # - name: Authenticate to Google Cloud
+      #   uses: google-github-actions/auth@v2
+      #   with:
+      #     workload_identity_provider: projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider
+      #     service_account: my-service-account@my-project.iam.gserviceaccount.com
