@@ -1,6 +1,7 @@
 # Repo Readiness Auditor
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GoT MCP](https://img.shields.io/badge/Updated%20Package-@abderraouf-yt/got--mcp-00e5ff.svg)](https://www.npmjs.com/package/@abderraouf-yt/got-mcp)
 
 An advanced AI Agent skill that performs comprehensive, multi-language audits of local and remote project directories. It ensures repositories are clean, secure, modular, and ready for GitHub.
 
@@ -31,10 +32,10 @@ Clone or copy this directory into your AI agent's skills or instructions folder 
 ## Usage
 
 Simply ask your AI assistant:
-- *"Audit my project structure"*
-- *"Prepare this repo for GitHub"*
-- *"Check my pushed repos for leaked secrets"*
-- *"Is my repo clean?"*
+- *\"Audit my project structure\"*
+- *\"Prepare this repo for GitHub\"*
+- *\"Check my pushed repos for leaked secrets\"*
+- *\"Is my repo clean?\"*
 
 The agent will automatically trigger the skill and run a 9-step audit workflow, producing a professional markdown report with critical issues, warnings, and actionable fixes.
 
