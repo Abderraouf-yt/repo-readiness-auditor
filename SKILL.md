@@ -431,6 +431,16 @@ ALWAYS use this exact template when delivering the audit:
 ## 🟢 Passed Checks
 (What the project does well)
 
+## 🏆 Repository Grade: [A-F]
+(Overall readiness score based on security and hygiene)
+
+## 🛡️ Remediation & Prevention
+- **IMMEDIATE RECOVERY**: If secrets were found, follow the [Remediation Guide](references/remediation-guide.md).
+- **FUTURE PREVENTION**: Install the pre-commit hook to block secret leaks locally:
+  ```bash
+  ./scripts/setup-pre-commit.sh
+  ```
+
 ## 🧠 Skill Ecosystem Compliance
 *(Only include this section if it is an AI Agent Skill repo)*
 (Report on YAML frontmatter, context bloat, `skills.sh` alignment, and `AGENTS.md` presence)
